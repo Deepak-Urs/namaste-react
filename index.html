@@ -8,14 +8,19 @@
 </head>
 <body>
     <div id="root">
-        <!--<h1>Namaste everyone!</h1>-->
+        <h1>Namaste everyone1!</h1>
+        <h1>Namaste everyone2!</h1>
+        <h1>Namaste everyone3!</h1>
     </div>
-</body>
+
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 <script>
-    const heading = React.createElement("h1", {}, "Namaste Everyone!")
+    const heading = React.createElement("h1", {id: 'title'}, "Namaste Everyone!")
     const root = ReactDOM.createRoot(document.getElementById("root"))
     root.render(heading)
+
+    console.log(heading);
 </script>
+</body>
 </html>
