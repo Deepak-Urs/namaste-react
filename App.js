@@ -16,6 +16,7 @@ import ReactDOM from "react-dom/client"
 * port number
 * consistent hashing algorithm
 * zero config
+* Tree Shaking - Removing unwanted code
 */
 
 const heading1 = React.createElement("h1", { id: 'title' }, "Heading1!")

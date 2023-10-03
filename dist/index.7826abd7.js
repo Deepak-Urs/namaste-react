@@ -2962,6 +2962,7 @@ var _clientDefault = parcelHelpers.interopDefault(_client);
 * port number
 * consistent hashing algorithm
 * zero config
+* Tree Shaking - Removing unwanted code
 */ const heading1 = /*#__PURE__*/ (0, _reactDefault.default).createElement("h1", {
     id: "title"
 }, "Heading1!");
