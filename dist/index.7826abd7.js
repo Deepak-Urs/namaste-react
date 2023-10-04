@@ -2977,7 +2977,6 @@ const container = /*#__PURE__*/ (0, _reactDefault.default).createElement("div", 
 ]);
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 root.render(container);
-console.log(heading1);
 
   $parcel$ReactRefreshHelpers$c1db.postlude(module);
 } finally {
