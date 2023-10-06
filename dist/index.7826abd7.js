@@ -2967,16 +2967,49 @@ var _clientDefault = parcelHelpers.interopDefault(_client);
 */ //const heading1 = React.createElement("h1", { id: 'title', key: 'h1' }, "Heading1!")
 //const heading2 = React.createElement("h2", { id: 'title', key: 'h2' }, "Heading2")
 //const container = React.createElement("div", { id: 'container' }, [heading1, heading2])
-const headingJSX = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+// React element / JSX
+const heading = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
     title: "id",
     children: "Namaste Javascript"
 }, void 0, false, {
     fileName: "App.js",
-    lineNumber: 26,
-    columnNumber: 20
+    lineNumber: 27,
+    columnNumber: 17
 }, undefined);
+// React Component
+const HeaderComponent = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "Namaste React Functional Component"
+            }, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 31,
+                columnNumber: 15
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: "This is a h2 tag!"
+            }, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 31,
+                columnNumber: 58
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "App.js",
+        lineNumber: 31,
+        columnNumber: 10
+    }, undefined);
+};
+_c = HeaderComponent;
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
-root.render(headingJSX);
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(HeaderComponent, {}, void 0, false, {
+    fileName: "App.js",
+    lineNumber: 34,
+    columnNumber: 13
+}, undefined));
+var _c;
+$RefreshReg$(_c, "HeaderComponent");
 
   $parcel$ReactRefreshHelpers$c1db.postlude(module);
 } finally {

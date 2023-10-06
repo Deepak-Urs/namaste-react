@@ -23,11 +23,17 @@ import ReactDOM from "react-dom/client"
 //const heading2 = React.createElement("h2", { id: 'title', key: 'h2' }, "Heading2")
 //const container = React.createElement("div", { id: 'container' }, [heading1, heading2])
 
-const headingJSX = (
+// React element / JSX
+const heading = (
     <h1 title="id">Namaste Javascript</h1>
 )
 
-console.log('headingJSX', headingJSX);
+// React Component
+const HeaderComponent = () => {
+    return (<div><h1>Namaste React Functional Component</h1><h2>This is a h2 tag!</h2></div>);
+}
+
+console.log('heading', heading);
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(headingJSX)
+root.render(<HeaderComponent />)
