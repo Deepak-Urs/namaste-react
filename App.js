@@ -25,12 +25,26 @@ import ReactDOM from "react-dom/client"
 
 // React element / JSX
 const heading = (
-    <h1 title="id">Namaste Javascript</h1>
+    <h1 title="id">Namaste React Element</h1>
+)
+
+// React element / JSX
+const Title = () => (
+    <h1 title="id"> Title Element</h1>
 )
 
 // React Component
+// Component compoition done below
 const HeaderComponent = () => {
-    return (<div><h1>Namaste React Functional Component</h1><h2>This is a h2 tag!</h2></div>);
+    return (
+    <div>
+        {heading}
+        <Title />
+        {Title()}
+        <h1>Namaste React Functional Component</h1>
+        <h2>This is a h2 tag!</h2>
+    </div>
+    );
 }
 
 console.log('heading', heading);
