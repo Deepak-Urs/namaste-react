@@ -28,12 +28,12 @@ const heading = (
     <h1 title="id">Namaste React Element</h1>
 )
 
-// React element / JSX
+// React component definition-1
 const Title = () => (
     <h1 title="id"> Title Element</h1>
 )
 
-// React Component
+// React component definition-2
 // Component compoition done below
 const HeaderComponent = () => {
     return (
