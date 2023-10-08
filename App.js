@@ -1,6 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
-/*
+
+/** APPLICATION PLANNING
+        Header
+            - Logo
+            - Nav Items
+            - Cart
+        Body
+            - Searchbar
+            - Restaurantlist
+                - Restaurant Card
+                    - Image
+                    - Name
+                    - Rating
+                    - Cuisine
+        Footer
+            - links
+            - copyrights
+    */
+
+
+/* PARCEL --
 * creates a server
 * Hot Module Replacement
 * .parcel-cache
@@ -24,30 +44,60 @@ import ReactDOM from "react-dom/client"
 //const container = React.createElement("div", { id: 'container' }, [heading1, heading2])
 
 // React element / JSX
-const heading = (
-    <h1 title="id">Namaste React Element</h1>
+//const heading = (
+//    <h1 title="id">Namaste React Element</h1>
+//)
+
+// React component definition-1: functional component
+const Title = () => (
+    <img src="fv.jpeg" alt="logo" className="logo" />
 )
 
-// React component definition-1
-const Title = () => (
-    <h1 title="id"> Title Element</h1>
-)
 
 // React component definition-2
 // Component compoition done below
-const HeaderComponent = () => {
+const Header = () => {
     return (
-    <div>
-        {heading}
+    <div className="header">
         <Title />
-        {Title()}
-        <h1>Namaste React Functional Component</h1>
-        <h2>This is a h2 tag!</h2>
+        <div className="nav-items">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+                <li>Cart</li>
+            </ul>
+        </div>
     </div>
     );
 }
 
+const Body = () => {
+    return (
+        <div className="body" style={{backgroundColor: 'green'}}><h1>Body</h1></div>
+    )
+}
+
+const Footer = () => {
+    return (
+        <div className="footer">
+        <h1>Footer</h1>
+        </div>
+    )
+}
+
 console.log('heading', heading);
 
+
+const AppLayout = () => {
+    return (
+        <React.Fragment>
+            <Header />
+            <Body />
+            <Footer />
+        </React.Fragment>
+    )
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(<HeaderComponent />)
+root.render(<AppLayout />)
