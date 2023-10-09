@@ -2949,12 +2949,12 @@ var _client = require("react-dom/client");
 var _clientDefault = parcelHelpers.interopDefault(_client);
 /** APPLICATION PLANNING
         Header
-            - Logo
+            - Logo (Title)
             - Nav Items
             - Cart
         Body
             - Searchbar
-            - Restaurantlist
+            - Restaurantlist (many cards)
                 - Restaurant Card
                     - Image
                     - Name
@@ -2987,6 +2987,44 @@ var _clientDefault = parcelHelpers.interopDefault(_client);
 //const heading = (
 //    <h1 title="id">Namaste React Element</h1>
 //)
+const restaurantList = [
+    {
+        name: "Burger King",
+        image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Fvector-art%2F20190410-burger-king-logo-vector-burger-king-icon-free-vector&psig=AOvVaw2jElvERXxlFcNqz7ScSL3z&ust=1696978251334000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCKCXyOCG6oEDFQAAAAAdAAAAABAE",
+        cuisines: [
+            "Burger",
+            "American"
+        ],
+        rating: "4.5"
+    },
+    {
+        name: "McDonalds",
+        image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Fvector-art%2F20190410-burger-king-logo-vector-burger-king-icon-free-vector&psig=AOvVaw2jElvERXxlFcNqz7ScSL3z&ust=1696978251334000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCKCXyOCG6oEDFQAAAAAdAAAAABAE",
+        cuisines: [
+            "Burger",
+            "American"
+        ],
+        rating: "4.4"
+    },
+    {
+        name: "Dominos",
+        image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Fvector-art%2F20190410-burger-king-logo-vector-burger-king-icon-free-vector&psig=AOvVaw2jElvERXxlFcNqz7ScSL3z&ust=1696978251334000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCKCXyOCG6oEDFQAAAAAdAAAAABAE",
+        cuisines: [
+            "Pizza",
+            "Italian"
+        ],
+        rating: "4.4"
+    },
+    {
+        name: "Chipotle",
+        image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Fvector-art%2F20190410-burger-king-logo-vector-burger-king-icon-free-vector&psig=AOvVaw2jElvERXxlFcNqz7ScSL3z&ust=1696978251334000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCKCXyOCG6oEDFQAAAAAdAAAAABAE",
+        cuisines: [
+            "Healthy foods",
+            "Mexican"
+        ],
+        rating: "4.5"
+    }
+];
 // React component definition-1: functional component
 const Title = ()=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
         src: "fv.jpeg",
@@ -2994,7 +3032,7 @@ const Title = ()=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
         className: "logo"
     }, void 0, false, {
         fileName: "App.js",
-        lineNumber: 51,
+        lineNumber: 73,
         columnNumber: 21
     }, undefined);
 _c = Title;
@@ -3006,8 +3044,8 @@ const Header = ()=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Title, {}, void 0, false, {
                 fileName: "App.js",
-                lineNumber: 57,
-                columnNumber: 9
+                lineNumber: 79,
+                columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "nav-items",
@@ -3017,45 +3055,45 @@ const Header = ()=>{
                             children: "Home"
                         }, void 0, false, {
                             fileName: "App.js",
-                            lineNumber: 60,
-                            columnNumber: 17
+                            lineNumber: 82,
+                            columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "About"
                         }, void 0, false, {
                             fileName: "App.js",
-                            lineNumber: 61,
-                            columnNumber: 17
+                            lineNumber: 83,
+                            columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Contact"
                         }, void 0, false, {
                             fileName: "App.js",
-                            lineNumber: 62,
-                            columnNumber: 17
+                            lineNumber: 84,
+                            columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Cart"
                         }, void 0, false, {
                             fileName: "App.js",
-                            lineNumber: 63,
-                            columnNumber: 17
+                            lineNumber: 85,
+                            columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "App.js",
-                    lineNumber: 59,
-                    columnNumber: 13
+                    lineNumber: 81,
+                    columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "App.js",
-                lineNumber: 58,
-                columnNumber: 9
+                lineNumber: 80,
+                columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "App.js",
-        lineNumber: 56,
+        lineNumber: 78,
         columnNumber: 10
     }, undefined);
 };
@@ -3064,77 +3102,148 @@ const Body = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
         style: {
-            backgroundColor: "green"
+            display: "flex",
+            flexWrap: "wrap"
         },
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Body"
-        }, void 0, false, {
-            fileName: "App.js",
-            lineNumber: 71,
-            columnNumber: 6
-        }, undefined)
-    }, void 0, false, {
-        fileName: "App.js",
-        lineNumber: 69,
-        columnNumber: 10
-    }, undefined);
-};
-_c2 = Body;
-const Footer = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "footer",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Footer"
-        }, void 0, false, {
-            fileName: "App.js",
-            lineNumber: 75,
-            columnNumber: 9
-        }, undefined)
-    }, void 0, false, {
-        fileName: "App.js",
-        lineNumber: 74,
-        columnNumber: 10
-    }, undefined);
-};
-_c3 = Footer;
-const AppLayout = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).Fragment, {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Header, {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RestaurantCard, {
+                restaurant: restaurantList[0]
+            }, void 0, false, {
                 fileName: "App.js",
-                lineNumber: 80,
+                lineNumber: 95,
                 columnNumber: 13
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Body, {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RestaurantCard, {
+                restaurant: restaurantList[1]
+            }, void 0, false, {
                 fileName: "App.js",
-                lineNumber: 81,
+                lineNumber: 96,
                 columnNumber: 13
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Footer, {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RestaurantCard, {
+                restaurant: restaurantList[2]
+            }, void 0, false, {
                 fileName: "App.js",
-                lineNumber: 82,
+                lineNumber: 97,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RestaurantCard, {
+                restaurant: restaurantList[3]
+            }, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 98,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "App.js",
-        lineNumber: 79,
+        lineNumber: 91,
         columnNumber: 10
     }, undefined);
 };
-_c4 = AppLayout;
+_c2 = Body;
+const RestaurantCard = (props)=>{
+    const { image, name, cuisines, rating } = props.restaurant;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "card",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                alt: "company-logo",
+                src: image
+            }, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 109,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: name
+            }, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 110,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: cuisines?.join(", ")
+            }, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 111,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                children: [
+                    rating,
+                    " stars"
+                ]
+            }, void 0, true, {
+                fileName: "App.js",
+                lineNumber: 112,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "App.js",
+        lineNumber: 108,
+        columnNumber: 10
+    }, undefined);
+};
+_c3 = RestaurantCard;
+const Footer = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "footer",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+            children: "Footer"
+        }, void 0, false, {
+            fileName: "App.js",
+            lineNumber: 117,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "App.js",
+        lineNumber: 116,
+        columnNumber: 10
+    }, undefined);
+};
+_c4 = Footer;
+const AppLayout = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).Fragment, {
+        children: [
+            void 0,
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Header, {}, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 123,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Body, {}, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 124,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Footer, {}, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 125,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "App.js",
+        lineNumber: 121,
+        columnNumber: 10
+    }, undefined);
+};
+_c5 = AppLayout;
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AppLayout, {}, void 0, false, {
     fileName: "App.js",
-    lineNumber: 86,
+    lineNumber: 129,
     columnNumber: 13
 }, undefined));
-var _c, _c1, _c2, _c3, _c4;
+var _c, _c1, _c2, _c3, _c4, _c5;
 $RefreshReg$(_c, "Title");
 $RefreshReg$(_c1, "Header");
 $RefreshReg$(_c2, "Body");
-$RefreshReg$(_c3, "Footer");
-$RefreshReg$(_c4, "AppLayout");
+$RefreshReg$(_c3, "RestaurantCard");
+$RefreshReg$(_c4, "Footer");
+$RefreshReg$(_c5, "AppLayout");
 
   $parcel$ReactRefreshHelpers$c1db.postlude(module);
 } finally {
