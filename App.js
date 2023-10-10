@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
+//import './index.css'
 
 /** APPLICATION PLANNING
         Header
@@ -51,24 +52,28 @@ import ReactDOM from "react-dom/client"
 
 const restaurantList = [{
     name: 'Burger King',
+    id: 1,
     image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Fvector-art%2F20190410-burger-king-logo-vector-burger-king-icon-free-vector&psig=AOvVaw2jElvERXxlFcNqz7ScSL3z&ust=1696978251334000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCKCXyOCG6oEDFQAAAAAdAAAAABAE',
     cuisines: ["Burger", "American"],
     rating: "4.5"
 },
 {
     name: 'McDonalds',
+    id: 2,
     image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Fvector-art%2F20190410-burger-king-logo-vector-burger-king-icon-free-vector&psig=AOvVaw2jElvERXxlFcNqz7ScSL3z&ust=1696978251334000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCKCXyOCG6oEDFQAAAAAdAAAAABAE',
     cuisines: ["Burger", "American"],
     rating: "4.4"
 },
 {
     name: 'Dominos',
+    id: 3,
     image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Fvector-art%2F20190410-burger-king-logo-vector-burger-king-icon-free-vector&psig=AOvVaw2jElvERXxlFcNqz7ScSL3z&ust=1696978251334000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCKCXyOCG6oEDFQAAAAAdAAAAABAE',
     cuisines: ["Pizza", "Italian"],
     rating: "4.4"
 },
 {
     name: 'Chipotle',
+    id: 4,
     image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Fvector-art%2F20190410-burger-king-logo-vector-burger-king-icon-free-vector&psig=AOvVaw2jElvERXxlFcNqz7ScSL3z&ust=1696978251334000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCKCXyOCG6oEDFQAAAAAdAAAAABAE',
     cuisines: ["Healthy foods", "Mexican"],
     rating: "4.5"
@@ -103,16 +108,19 @@ const Body = () => {
 
     return (
         <div className="body" style={{ display: "flex", flexWrap: "wrap" }}>
-            <RestaurantCard restaurant={restaurantList[0]}/>
+            {/*<RestaurantCard restaurant={restaurantList[0]}/>
             <RestaurantCard restaurant={restaurantList[1]}/>
             <RestaurantCard restaurant={restaurantList[2]}/>
-            <RestaurantCard restaurant={restaurantList[3]}/>
+            <RestaurantCard restaurant={restaurantList[3]}/>*/}
+            {restaurantList.map((res) => {
+                return <RestaurantCard {...res} key={res.id}/>
+            })}
         </div>
     )
 }
 
-const RestaurantCard = (props) => {
-    const {image, name, cuisines, rating} = props.restaurant
+const RestaurantCard = ({image, name, cuisines, rating}) => {
+    //const {image, name, cuisines, rating} = props.restaurant
     return (
         <div className="card">
             <img alt="company-logo" src={image} />
