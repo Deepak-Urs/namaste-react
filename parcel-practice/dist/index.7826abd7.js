@@ -2970,7 +2970,6 @@ const divContainer = /*#__PURE__*/ (0, _reactDefault.default).createElement("h2"
     heading1,
     heading2
 ]);
-console.log(divContainer);
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 root.render(divContainer);
 
