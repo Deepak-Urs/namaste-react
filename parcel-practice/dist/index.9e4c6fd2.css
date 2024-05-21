@@ -1,4 +1,20 @@
 * {
   background-color: beige;
 }
+
+.nav-items > ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.nav-items > ul > li {
+  padding: 10px;
+}
+
+.header {
+  border: 1px solid;
+  justify-content: space-between;
+  margin: 10px;
+  display: flex;
+}
 /*# sourceMappingURL=index.9e4c6fd2.css.map */
