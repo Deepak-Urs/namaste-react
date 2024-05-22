@@ -28,20 +28,67 @@ const AppLayout = () => {
      )
 }
 
-const RestaurantCard = () => {
+const restaurantList = [
+    {
+        id: 1,
+        name: "KFC",
+        genre: "Burgers, American",
+        rating: "4",
+        image: "./unnamed.webp"
+    },
+    {
+        id: 2,
+        name: "BK",
+        genre: "Burgers, American",
+        rating: "4",
+        image: "./unnamed.webp"
+    },
+    {
+        id: 3,
+        name: "MD",
+        genre: "Burgers, American",
+        rating: "4",
+        image: "./unnamed.webp"
+    },
+    {
+        id: 4,
+        name: "JB",
+        genre: "Burgers, American",
+        rating: "4",
+        image: "./unnamed.webp"
+    },
+    {
+        id: 5,
+        name: "D",
+        genre: "Burgers, American",
+        rating: "4",
+        image: "./unnamed.webp"
+    },
+]
+
+const RestaurantList = ({data}) => {
+    return data.map(item => <RestaurantCard {...item} key={item.id} />)
+}
+
+const RestaurantCard = ({image, name, genre, rating}) => {
+    //console.log('data seen', data)
+    //const {image, name, genre, rating} = data;
     return (
         <div className="card">
-            <img src="unnamed.webp" alt="restauarant" />
-            <h2>Burger King</h2>
-            <h3>Burgers, American</h3>
-            <h4>4 stars</h4>
+            <img src={image} alt="restauarant" />
+            <h2>{name}</h2>
+            <h3>{genre}</h3>
+            <h4>{rating} stars</h4>
         </div>
     )
 }
 
 
 const Body = () => (
-    <h4><RestaurantCard />
+    <h4>
+        {/*<RestaurantCard data={restaurantList[0]}/>*/}
+        <RestaurantList data={restaurantList} />
+        {console.log('body dta-', restaurantList[0])}
         </h4>
 )
 
