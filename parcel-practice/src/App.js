@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
 
+import HeaderComponent from "./components/HeaderComponent";
+
 const AppLayout = () => {
     return (
         <React.Fragment>
@@ -85,11 +87,11 @@ const RestaurantCard = ({image, name, genre, rating}) => {
 
 
 const Body = () => (
-    <h4>
+    <div style={{display: "flex", flexDirection: "row"}}>
         {/*<RestaurantCard data={restaurantList[0]}/>*/}
         <RestaurantList data={restaurantList} />
         {console.log('body dta-', restaurantList[0])}
-        </h4>
+        </div>
 )
 
 const Footer = () => (
@@ -97,27 +99,11 @@ const Footer = () => (
 )
 
 
-const Title = () => 
-        <div>
-            <img src="unnamed.webp" alt="logo" />
-            <h2>Food Villa</h2>
-        </div>
-
-const HeaderComponent = () => 
-        <div className="header">  
-            <Title titleName="FoodVilla"/>
-            {/*<h1>Food Villa</h1>*/}
-            <div className="nav-items" style={{backgroundColor: 'orange'}}>
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-
-                </ul>
-            </div>
-            
-        </div>
+//const Title = () => 
+//        <div>
+//            <img src="unnamed.webp" alt="logo" />
+//            <h2>Food Villa</h2>
+//        </div>
 //const divContainer = React.createElement("div", {id: "title"}, [HeaderComponent1a, HeaderComponent1b])
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
