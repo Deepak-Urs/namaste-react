@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { restaurantList } from '../constants'
 import RestaurantLists from './RestaurantLists'
@@ -6,32 +6,48 @@ import RestaurantLists from './RestaurantLists'
 
 const Body = () => {
     const [searchTxt, setSeacrhTxt] = useState("")
-    //const [searchClicked, setSearchClicked] = useState('false');
-    const [resList, setResList] = useState(restaurantList)
-    //const res= restaurantList.filter(item => item['name'].includes('kf'));
-    //console.log(res);
+    const [resList, setResList] = useState([])
     
-    const filterData = (filterText) => {
-        
-        const filteredRes = restaurantList.filter(item => item['name'].includes(filterText));
-        console.log('filterData', filterData)
-        return filteredRes
-        ;
+
+    useEffect(() => {
+        getRestaurants()
+        console.log("useEffect")
+    }, [searchTxt])
+    console.log("render")
+
+    async function getRestaurants() {
+        const data = await restaurantList;
+        setTimeout(() => setResList(data), 2500)
+    }
+
+    
+    const filterData = (filterText, restauarants) => {
+        console.log('filterText', filterText)
+        //const newList = restauarants.filter(i => i.name == filterText)
+        const newList = restauarants.filter(i => i.name.toLowerCase().includes(filterText))
+        return newList
     }
 
     return (
         <div >
             
             <div className="search-box">
-                <input type="text" className='search__input' placeholder='Search' value={searchTxt} onChange={(e) => {setSeacrhTxt(e.target.value); }}/>
 
-                {/*<input type="submit" onClick={() => searchClicked == "true" ? setSearchClicked("false") : setSearchClicked("true")} />
-                */}
-                <input type="submit" onClick={() => {
-                    
-                    const data = filterData(searchTxt);
-                    setResList(data)
-                    }} />
+                <input type="text" className='search__input' placeholder='Search' value={searchTxt} onChange={(e) => {setSeacrhTxt(e.target.value)}}/>
+
+                <button 
+                    onClick={() => {
+                        const data = filterData(searchTxt, restaurantList)
+                        if(data.length === 0) {
+                            setResList([])
+                        }
+                        else {
+                            setResList(data)
+                        }
+                    }}
+                > 
+                Search
+                </button>
 
                 
 
@@ -39,7 +55,7 @@ const Body = () => {
                 {searchTxt}
             </div>
             <div className="restaurant__lists" style={{ display: "flex", flexDirection: "row" }}>
-            <RestaurantLists data={resList} />
+            {resList && resList.length ? <RestaurantLists data={resList} /> : searchTxt && resList.length == 0 ? <h1>No results</h1> : <h1>Data Loading...</h1>}
             </div>
 
         </div>

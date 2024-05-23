@@ -2961,28 +2961,29 @@ var _headerComponent = require("./components/HeaderComponent");
 var _headerComponentDefault = parcelHelpers.interopDefault(_headerComponent);
 var _body = require("./components/Body");
 var _bodyDefault = parcelHelpers.interopDefault(_body);
+var _constants = require("./constants");
 const AppLayout = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).Fragment, {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerComponentDefault.default), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 7,
-                columnNumber: 9
+                lineNumber: 8,
+                columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 8,
-                columnNumber: 9
+                lineNumber: 9,
+                columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Footer, {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 9,
-                columnNumber: 9
+                lineNumber: 10,
+                columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/App.js",
-        lineNumber: 6,
+        lineNumber: 7,
         columnNumber: 10
     }, undefined) /*
   Header
@@ -3007,7 +3008,7 @@ const Footer = ()=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
         children: "Footer"
     }, void 0, false, {
         fileName: "src/App.js",
-        lineNumber: 29,
+        lineNumber: 30,
         columnNumber: 22
     }, undefined);
 _c1 = Footer;
@@ -3016,7 +3017,7 @@ const root = (0, _clientDefault.default).createRoot(document.getElementById("roo
 //root.render(HeaderComponent1a());
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AppLayout, {}, void 0, false, {
     fileName: "src/App.js",
-    lineNumber: 35,
+    lineNumber: 36,
     columnNumber: 13
 }, undefined));
 var _c, _c1;
@@ -3028,7 +3029,7 @@ $RefreshReg$(_c1, "Footer");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/HeaderComponent":"hvUPh","./components/Body":"8yaV8"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/HeaderComponent":"hvUPh","./components/Body":"8yaV8","./constants":"3huJa"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27570,13 +27571,20 @@ var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
     const [searchTxt, setSeacrhTxt] = (0, _react.useState)("");
-    //const [searchClicked, setSearchClicked] = useState('false');
-    const [resList, setResList] = (0, _react.useState)((0, _constants.restaurantList));
-    //const res= restaurantList.filter(item => item['name'].includes('kf'));
-    //console.log(res);
-    const filterData = (filterText)=>{
-        const filteredRes = (0, _constants.restaurantList).filter((item)=>item["name"].includes(filterText));
-        return filteredRes;
+    const [resList, setResList] = (0, _react.useState)([]);
+    (0, _react.useEffect)(()=>{
+        getRestaurants();
+    }, [
+        searchTxt
+    ]);
+    async function getRestaurants() {
+        const data = await (0, _constants.restaurantList);
+        setTimeout(()=>setResList(data), 2500);
+    }
+    const filterData = (filterText, restauarants)=>{
+        //const newList = restauarants.filter(i => i.name == filterText)
+        const newList = restauarants.filter((i)=>i.name.toLowerCase().includes(filterText));
+        return newList;
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
@@ -27593,25 +27601,26 @@ const Body = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 18,
+                        lineNumber: 23,
                         columnNumber: 17
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "submit",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         onClick: ()=>{
-                            const data = filterData(searchTxt);
-                            setResList(data);
-                        }
+                            const data = filterData(searchTxt, (0, _constants.restaurantList));
+                            if (data.length === 0) setResList([]);
+                            else setResList(data);
+                        },
+                        children: "Search"
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 24,
+                        lineNumber: 27,
                         columnNumber: 17
                     }, undefined),
                     searchTxt
                 ]
             }, void 0, true, {
                 fileName: "src/components/Body.js",
-                lineNumber: 17,
+                lineNumber: 21,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27620,26 +27629,38 @@ const Body = ()=>{
                     display: "flex",
                     flexDirection: "row"
                 },
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantListsDefault.default), {
+                children: resList && resList.length ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantListsDefault.default), {
                     data: resList
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 38,
-                    columnNumber: 13
+                    lineNumber: 47,
+                    columnNumber: 42
+                }, undefined) : searchTxt && resList.length == 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    children: "No results"
+                }, void 0, false, {
+                    fileName: "src/components/Body.js",
+                    lineNumber: 47,
+                    columnNumber: 114
+                }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    children: "Data Loading..."
+                }, void 0, false, {
+                    fileName: "src/components/Body.js",
+                    lineNumber: 47,
+                    columnNumber: 136
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 34,
+                lineNumber: 43,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 15,
+        lineNumber: 19,
         columnNumber: 10
     }, undefined);
 };
-_s(Body, "g0RJ5Am/igmu0idS17H0yrS8WsA=");
+_s(Body, "t0DQx4SLpvfXTndapY/sQr2p1Wg=");
 _c = Body;
 exports.default = Body;
 var _c;

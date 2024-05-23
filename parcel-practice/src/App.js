@@ -3,13 +3,15 @@ import ReactDOM from "react-dom/client"
 
 import HeaderComponent from "./components/HeaderComponent";
 import Body from "./components/Body";
+import { restaurantList } from "./constants";
 
 const AppLayout = () => {
+    console.log('restaurantList', 'restaurantList')
     return (
         <React.Fragment>
-        <HeaderComponent />
-        <Body />
-        <Footer />
+            <HeaderComponent />
+            <Body />
+            <Footer />
         </React.Fragment>
             /*
             Header
