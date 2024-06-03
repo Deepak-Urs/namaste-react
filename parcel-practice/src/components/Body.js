@@ -24,7 +24,7 @@ const Body = () => {
     const filterData = (filterText, restauarants) => {
         console.log('filterText', filterText)
         //const newList = restauarants.filter(i => i.name == filterText)
-        const newList = restauarants.filter(i => i.name.toLowerCase().includes(filterText))
+        const newList = restauarants.filter(i => i.name.toLowerCase().includes(filterText.toLowerCase()))
         return newList
     }
 
@@ -33,7 +33,7 @@ const Body = () => {
             
             <div className="search-box">
 
-                <input type="text" className='search__input' placeholder='Search' value={searchTxt} onChange={(e) => {setSeacrhTxt(e.target.value)}}/>
+                <input type="text" className='search__input' placeholder='Search' value={searchTxt} onChange={(e) => {setSeacrhTxt(e.target.value); console.log(searchTxt)}}/>
 
                 <button 
                     onClick={() => {
