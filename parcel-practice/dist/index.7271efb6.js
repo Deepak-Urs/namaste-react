@@ -27285,6 +27285,7 @@ parcelHelpers.export(exports, "Title", ()=>Title);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
 const Title = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
@@ -27311,14 +27312,20 @@ const Title = ()=>{
     }, undefined);
 };
 _c = Title;
-const HeaderComponent = ()=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+const HeaderComponent = ()=>{
+    _s();
+    const [logStatus, setLogStatus] = (0, _react.useState)(false);
+    function authUser() {
+        setLogStatus(!logStatus);
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "header",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Title, {
                 titleName: "FoodVilla"
             }, void 0, false, {
                 fileName: "src/components/HeaderComponent.js",
-                lineNumber: 9,
+                lineNumber: 14,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27332,47 +27339,57 @@ const HeaderComponent = ()=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             children: "Home"
                         }, void 0, false, {
                             fileName: "src/components/HeaderComponent.js",
-                            lineNumber: 15,
+                            lineNumber: 20,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "About"
                         }, void 0, false, {
                             fileName: "src/components/HeaderComponent.js",
-                            lineNumber: 16,
+                            lineNumber: 21,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Contact Us"
                         }, void 0, false, {
                             fileName: "src/components/HeaderComponent.js",
-                            lineNumber: 17,
+                            lineNumber: 22,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Cart"
                         }, void 0, false, {
                             fileName: "src/components/HeaderComponent.js",
-                            lineNumber: 18,
+                            lineNumber: 23,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/HeaderComponent.js",
-                    lineNumber: 14,
+                    lineNumber: 19,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/HeaderComponent.js",
-                lineNumber: 11,
+                lineNumber: 16,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>authUser(),
+                children: logStatus ? `Log Out` : `Log In`
+            }, void 0, false, {
+                fileName: "src/components/HeaderComponent.js",
+                lineNumber: 27,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/HeaderComponent.js",
-        lineNumber: 8,
-        columnNumber: 31
+        lineNumber: 13,
+        columnNumber: 10
     }, undefined);
+};
+_s(HeaderComponent, "FYNVShOZKTDwbjbHx5c3ACocXeE=");
 _c1 = HeaderComponent;
 exports.default = HeaderComponent;
 var _c, _c1;
@@ -27578,8 +27595,11 @@ const Body = ()=>{
         searchTxt
     ]);
     async function getRestaurants() {
-        const data = await (0, _constants.restaurantList);
-        setTimeout(()=>setResList(data), 2500);
+        try {
+            setTimeout(()=>{});
+            const data = await (0, _constants.restaurantList);
+            setTimeout(()=>setResList(data), 2500);
+        } catch (err) {}
     }
     const filterData = (filterText, restauarants)=>{
         //const newList = restauarants.filter(i => i.name == filterText)
@@ -27601,7 +27621,7 @@ const Body = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 23,
+                        lineNumber: 26,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27613,14 +27633,14 @@ const Body = ()=>{
                         children: "Search"
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 27,
+                        lineNumber: 30,
                         columnNumber: 17
                     }, undefined),
                     searchTxt
                 ]
             }, void 0, true, {
                 fileName: "src/components/Body.js",
-                lineNumber: 21,
+                lineNumber: 24,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27633,30 +27653,30 @@ const Body = ()=>{
                     data: resList
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 47,
+                    lineNumber: 50,
                     columnNumber: 42
                 }, undefined) : searchTxt && resList.length == 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                     children: "No results"
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 47,
+                    lineNumber: 50,
                     columnNumber: 114
                 }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                     children: "Data Loading..."
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 47,
+                    lineNumber: 50,
                     columnNumber: 136
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 43,
+                lineNumber: 46,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 19,
+        lineNumber: 22,
         columnNumber: 10
     }, undefined);
 };

@@ -16,8 +16,14 @@ const Body = () => {
     console.log("render")
 
     async function getRestaurants() {
-        const data = await restaurantList;
-        setTimeout(() => setResList(data), 2500)
+        try {
+            setTimeout(() => {console.log('Calling API')}, )
+            const data = await restaurantList;
+            setTimeout(() => setResList(data), 2500)
+        }
+        catch(err) {
+            console.log(err)
+        }
     }
 
     

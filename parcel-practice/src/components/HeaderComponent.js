@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const Title = () => {
   return (
@@ -10,8 +10,14 @@ export const Title = () => {
 }
 
 
-const HeaderComponent = () => 
-        <div className="header">  
+const HeaderComponent = () => {
+        const [logStatus, setLogStatus] = useState(false);
+
+        function authUser() {
+            setLogStatus(!logStatus);
+        }
+
+        return (<div className="header">  
             <Title titleName="FoodVilla"/>
             {/*<h1>Food Villa</h1>*/}
             <div className="nav-items" style={{backgroundColor: 'orange'}}>
@@ -23,8 +29,9 @@ const HeaderComponent = () =>
 
                 </ul>
             </div>
-            
-        </div>
+            <button onClick={() => authUser()}>{logStatus ? `Log Out` : `Log In`}</button>
+        </div>)
+        }
 
 
 export default HeaderComponent;
