@@ -58,10 +58,10 @@ const Body = () => {
                 
 
                 {/*<h1>{searchClicked}</h1>*/}
-                {searchTxt}
+                {searchTxt}csa
             </div>
             <div className="restaurant__lists" style={{ display: "flex", flexDirection: "row" }}>
-            {resList && resList.length ? <RestaurantLists data={resList} /> : searchTxt && resList.length == 0 ? <h1>No results</h1> : <h1>Data Loading...</h1>}
+            {resList && resList.length ? <RestaurantLists data={resList} /> : searchTxt && resList.length == 0 ? <h1>No results</h1> : <h1>SIMMER UI</h1>}
             </div>
 
         </div>

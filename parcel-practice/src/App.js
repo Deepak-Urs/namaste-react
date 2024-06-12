@@ -3,14 +3,17 @@ import ReactDOM from "react-dom/client"
 
 import HeaderComponent from "./components/HeaderComponent";
 import Body from "./components/Body";
-import { restaurantList } from "./constants";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import About from "./Components/ABout";
+
 
 const AppLayout = () => {
     console.log('restaurantList', 'restaurantList')
     return (
         <React.Fragment>
             <HeaderComponent />
-            <Body />
+            {/*<Body />*/}
+            <Outlet />
             <Footer />
         </React.Fragment>
             /*
@@ -38,8 +41,23 @@ const Footer = () => (
 )
 
 
+const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <AppLayout />,
+        errorElement: <Error />,
+        children: [
+            {
+                path: "/about",
+                element: <About />
+            }
+        ]
+    }
+    
+])
+
 //const divContainer = React.createElement("div", {id: "title"}, [HeaderComponent1a, HeaderComponent1b])
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 //root.render(HeaderComponent1a());
-root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter} />);
