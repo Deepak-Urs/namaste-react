@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 
+// hook to check online connections
 const useOnlineStatus = () => {
-    const [isOnline, setisOnline] = useState(true);
+    const [isOnline, setIsOnline] = useState(true);
+
+    // we use thebewlo 2 instead of setIsonline bcoz, code will be clean
+    // in case of cleanup in useEffect, we can avoid the sam efunction again
+    const handleOnline = () => {
+        setIsOnline(true);
+    }
+
+    const handleOffline = () => {
+        setIsOnline(false);
+    }
 
     useEffect(() => {
-      
-        const handleOnline = () => {
-            setisOnline(true);
-        }
-
-        const handleOffline = () => {
-            setisOnline(false);
-        }
-
         window.addEventListener("online", handleOnline);
         window.addEventListener("offline", handleOffline);
 
@@ -20,8 +22,8 @@ const useOnlineStatus = () => {
             window.removeEventListener("online", handleOnline);
             window.removeEventListener("offline", handleOffline);
         }
-    }, [])
-    
+    }, [isOnline]);
+
     return isOnline;
 }
 
