@@ -16,8 +16,10 @@ import store from "./utils/Store";
 import SearchTextContext from "./utils/SearchTextContext";
 import SignUp from "./components/SignUp";
 import PathContext from "./utils/PathContext";
+//import Instamart from "./components/Instamart";
 
 const About = lazy(() => import("./components/About"));
+const Instamart = lazy(() => import("./components/Instamart"));
 // -----------------------------------------  BUILDING FOOD STUDIO     ------------------------------
 
 const AppComponent = () => {
@@ -78,6 +80,10 @@ const appRouter = createBrowserRouter([
         path: "/signup",
         element: <SignUp />,
       },
+      {
+        path: "/instamart",
+        element: <Instamart />
+      }
     ],
   },
 ]);
