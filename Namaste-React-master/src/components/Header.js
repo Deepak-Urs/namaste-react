@@ -45,6 +45,7 @@ const Header = () => {
 
   return (
     <div className="flex justify-between p-[13px]">
+      <h1 class="font-bold text-sm text-green-600">Hello World</h1>
       <a className="w-[50px] h-[50px] overflow-hidden rounded-full flex justify-center" href="/">
         <img className="max-w-full max-h-full object-cover"
           src= {FOOD_STDUIO_LOGO}
