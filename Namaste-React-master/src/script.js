@@ -16,10 +16,10 @@ import store from "./utils/Store";
 import SearchTextContext from "./utils/SearchTextContext";
 import SignUp from "./components/SignUp";
 import PathContext from "./utils/PathContext";
-//import Instamart from "./components/Instamart";
+import Instamart from "./components/Instamart";
 
 const About = lazy(() => import("./components/About"));
-const Instamart = lazy(() => import("./components/Instamart"));
+//const Instamart = lazy(() => import("./components/Instamart"));
 // -----------------------------------------  BUILDING FOOD STUDIO     ------------------------------
 
 const AppComponent = () => {
