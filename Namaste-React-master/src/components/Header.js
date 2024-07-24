@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { FOOD_STDUIO_LOGO } from "./Config";
 import { auth } from "../firebase";
 import PathContext from "../utils/PathContext";
+import UserContext from "../utils/UserContext";
 
 
 const Header = () => {
@@ -12,6 +13,7 @@ const Header = () => {
   const {currentPath} = useContext(PathContext);
 
   const [userName, setUserName] = useState(null);
+  const {user} = useContext(UserContext);
 
   // Subscribe to the redux store
   const cartItems = useSelector(store => store.cart.cartItems);
@@ -76,6 +78,8 @@ const Header = () => {
           }
           
         </div>
+        { user ? user.name: {}}
+        {/*{user.name}*/}
       </div>
     </div>
   );
