@@ -7,7 +7,7 @@ const cartItems = {
   logo: "",
   items: [],
 };
-
+ 
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
