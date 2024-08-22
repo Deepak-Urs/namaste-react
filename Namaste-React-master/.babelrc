@@ -11,5 +11,7 @@
         [
             "transform-remove-console"
         ]
-    ]
+    ],
+    "presets": [["@babel/preset-env", {"targets": {"node": "current"}}]]
+    
 }
